@@ -33,7 +33,7 @@ const Navbar = () => {
             </button>
         </div>
         <div className="flex gap-1">
-          <button className={`${style.button}`}>Login</button>
+          <Link to={"/login"} className={`${style.button}`}>Login</Link>
           <button className={`${style.button}`}>
             Sign up
             <div className={`${style.arrow_wrapper}`}>
