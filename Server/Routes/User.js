@@ -20,7 +20,7 @@ route.post("/signup", (req, res) => {
       "ourSecretKey",
       { expiresIn: "10m" }
     );
-    const link = "http://" + req.get("host") + "/verify?id=" + token;
+    const link = "http://" + req.get("host") + "/verify/" + token;
     const mailOptions = {
       to: req.body.user_email,
       subject: "Please confirm your Email account",
@@ -40,9 +40,11 @@ route.post("/signup", (req, res) => {
   });
 });
 
-route.get("/verify", function (req, res) {
+route.get("/verify/:token", function (req, res) {
+  // const token = req.url.split("/")[2];
+  const token = req.params.token
   jsonwebtoken.verify(
-    req.query.id,
+    token,
     "ourSecretKey",
     async function (err, decoded) {
       if (err) {
@@ -50,11 +52,19 @@ route.get("/verify", function (req, res) {
           "Email verification failed, possibly the link is invalid or expired"
         );
       } else {
-        let user = new User(decoded.data);
-        user.order = []
-        user.cart ={}
+        // console.log(decoded.data)
+        decoded.data.order = []
+        decoded.data.cart ={}
+        let user = new User({
+          user_name:decoded.data.user_name,
+          user_email:decoded.data.user_email,
+          user_password:decoded.data.user_password,
+          terms:decoded.data.terms,
+          cart:{},
+          order:[],
+        });
         await user.save();
-        let log = User.findOne({ user_name: decoded.data.user_name });
+        let log = await User.findOne({ user_name: decoded.data.user_name });
         if (log) {
           res.json({
             success: true,

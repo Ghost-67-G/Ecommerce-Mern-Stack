@@ -1,13 +1,18 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
   const form = useForm();
+  const navigate = useNavigate()
   const signup = (data) => {
-    axios.post("/signup",data)
-    console.log(data);
+    data.order = []
+    data.cart = {}
+    axios.post("/signup",data).then((resp)=>{
+      form.reset()
+      navigate('/verify/email')
+    })
   };
 
   return (

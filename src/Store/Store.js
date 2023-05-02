@@ -513,6 +513,15 @@ function cart(old=cartitems,newData){
     }
 }
 
-const allSection = combineReducers({ products, cart });
+
+function user(old={},newData){
+  if(newData.type == "LOGIN"){
+    return {...newData.payload}
+  }else{
+    return {...old}
+  }
+}
+
+const allSection = combineReducers({ products, cart, user });
 const store = createStore(allSection);
 export default store;

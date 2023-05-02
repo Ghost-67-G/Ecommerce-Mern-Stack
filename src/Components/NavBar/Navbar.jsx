@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const CartItems = useSelector(store=>store.cart.totalProducts)
   const navigate = useNavigate()
+  const  user = useSelector(store=>store.user)
+  console.log(user)
   return (
     <nav className="flex h-24 fixed w-full top-0 border items-center bg-gray-400 justify-between px-20">
       <div className="flex items-center gap-12">
