@@ -1,4 +1,5 @@
 import "./Login.css";
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div>
@@ -69,12 +70,11 @@ const Login = () => {
                   <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">
                     Forgot Password ?
                   </span>
-                  <a
-                    href="#"
+                  <Link to={"/signup"}
                     className="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all"
                   >
                     Don't have an account yet?
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>

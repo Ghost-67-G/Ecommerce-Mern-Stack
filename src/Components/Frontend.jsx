@@ -5,6 +5,7 @@ import Products from './Products/Products'
 import Product from './Product/Product'
 import Cart from './Cart/Cart'
 import Login from './Login/Login'
+import Signup from './Sign up/Signup'
 
 const Frontend = () => {
   return (
@@ -16,6 +17,7 @@ const Frontend = () => {
         <Route path='/product/:name/:id' element={<Product />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
       </Routes>
     </BrowserRouter>
     </>

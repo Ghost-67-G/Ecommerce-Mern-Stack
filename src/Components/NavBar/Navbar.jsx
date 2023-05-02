@@ -7,7 +7,7 @@ const Navbar = () => {
   const CartItems = useSelector(store=>store.cart.totalProducts)
   const navigate = useNavigate()
   return (
-    <nav className="flex h-24 border items-center bg-gray-400 justify-between px-20">
+    <nav className="flex h-24 fixed w-full top-0 border items-center bg-gray-400 justify-between px-20">
       <div className="flex items-center gap-12">
         <Link to={"/"}>
         <img className="w-44" src="./Asserts/shoe-store.png" alt="" />
@@ -34,12 +34,12 @@ const Navbar = () => {
         </div>
         <div className="flex gap-1">
           <Link to={"/login"} className={`${style.button}`}>Login</Link>
-          <button className={`${style.button}`}>
+          <Link to={"/signup"} className={`${style.button}`}>
             Sign up
             <div className={`${style.arrow_wrapper}`}>
               <div className={`${style.arrow}`}></div>
             </div>
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

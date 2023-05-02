@@ -45,14 +45,16 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className="text-center">
+        <div>
+          <div className="text-center margin">
           <h1 className="text-5xl py-16">Your Cart is Empty</h1>
           <Link
             to="/"
             className="bg-green-700 font-semibold text-white p-3 rounded-lg"
-          >
+            >
             Continue Shopping
           </Link>
+        </div>
         </div>
       )}
     </div>

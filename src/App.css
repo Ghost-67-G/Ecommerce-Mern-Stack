@@ -1,2 +1,3 @@
-body { font-family: 'Rubik', sans-serif; }
-[x-cloak] { display: none; }
+.margin{
+    margin-top: 100px;
+}
