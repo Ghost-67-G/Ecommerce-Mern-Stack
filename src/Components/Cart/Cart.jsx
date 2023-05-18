@@ -4,9 +4,8 @@ import Card from "./Card";
 
 const Cart = () => {
   const cart = useSelector((store) => store.cart);
-  console.log(cart);
   return (
-    <div>
+    <div className="margin">
       {cart.totalProducts ? (
         <div className="h-screen bg-gray-100 pt-20">
           <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>

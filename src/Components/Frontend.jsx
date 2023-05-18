@@ -8,8 +8,15 @@ import Login from './Login/Login'
 import Signup from './Sign up/Signup'
 import Verify from './Verify/Verify'
 import Verifing from './Verify/Verifing'
+import { useSelector } from 'react-redux'
+import axios from 'axios'
 
 const Frontend = () => {
+  const user  =  useSelector(store=>store.user)
+  const cart  =  useSelector(store=>store.cart)
+  if(Object.keys(user).length !== 0&& cart.products.length !== 0){
+    axios.put("/update-userCart", {cart,id:user._id})
+  }
   return (
     <>
     <BrowserRouter>

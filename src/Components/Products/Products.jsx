@@ -3,12 +3,7 @@ import Card from "./Card";
 import { useSelector } from "react-redux";
 
 const Products = () => {
-  // const [products,setProducts] = useState()
   const products = useSelector((store) => store.products);
-  //     fetch('https://dummyjson.com/products')
-  // .then(res => res.json())
-  // .then(res=>setProducts([...res.products]))
-  console.log(products);
   return (
     <div className=" px-32 py-9 bg-gray-200">
       <div className="margin">

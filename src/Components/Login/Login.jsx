@@ -1,6 +1,37 @@
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 const Login = () => {
+  const form = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const [exist,setExist] = useState(false)
+  const [pass,setPass] = useState(false)
+
+
+
+
+  const login = (data1) => {
+    let data = JSON.stringify(data1);
+    axios.get(`/login?data=${data}`).then((resp) => {
+      if (resp.data.success) {
+        dispatch({
+          type: "LOGIN",
+          payload: resp.data.user,
+        });
+        navigate("/")
+      }else if(resp.data.userNotExist){
+        setExist(true)
+        setPass(false)
+      }else{
+        setExist(false)
+        setPass(true)
+      }
+    });
+  };
   return (
     <div>
       <>
@@ -33,30 +64,36 @@ const Login = () => {
           </div>
           <div className="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
             <div className="w-full px-8 md:px-32 lg:px-24">
-              <form className="bg-white rounded-md shadow-2xl p-5">
+              <form
+                onSubmit={form.handleSubmit(login)}
+                className="bg-white rounded-md shadow-2xl p-5"
+              >
                 <h1 className="text-gray-800 font-bold text-2xl mb-1">
                   Hello Again!
                 </h1>
                 <p className="text-sm font-normal text-gray-600 mb-8">
                   Welcome Back
                 </p>
+                {exist?
+                  <p className="text-red-500  ms-5">This Email does't exist. Please create account</p>
+                :null}
                 <div className="flex items-center border-2 mb-8 py-2 px-3 rounded-2xl">
                   <span className="text-gray-500 text-xl">@</span>
                   <input
-                    id="email"
+                    {...form.register("user_email", { required: true })}
                     className=" pl-2 w-full outline-none border-none"
                     type="email"
-                    name="email"
                     placeholder="Email Address"
                   />
                 </div>
+                {pass?
+                  <p className="text-red-500 ms-5">Wrong Password</p>
+                :null}
                 <div className="flex items-center border-2 mb-12 py-2 px-3 rounded-2xl ">
-                  
                   <input
+                    {...form.register("user_password", { required: true })}
                     className="pl-2 w-full outline-none border-none"
                     type="password"
-                    name="password"
-                    id="password"
                     placeholder="Password"
                   />
                 </div>
@@ -70,7 +107,8 @@ const Login = () => {
                   <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">
                     Forgot Password ?
                   </span>
-                  <Link to={"/signup"}
+                  <Link
+                    to={"/signup"}
                     className="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all"
                   >
                     Don't have an account yet?

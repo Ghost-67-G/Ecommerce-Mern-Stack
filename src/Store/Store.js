@@ -12,6 +12,7 @@ const initialState = {
       stock: 94,
       brand: "Apple",
       category: "smartphones",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/1/1.jpg",
@@ -32,6 +33,7 @@ const initialState = {
       stock: 34,
       brand: "Apple",
       category: "smartphones",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/2/1.jpg",
@@ -51,6 +53,7 @@ const initialState = {
       stock: 36,
       brand: "Samsung",
       category: "smartphones",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
       images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
     },
@@ -64,6 +67,7 @@ const initialState = {
       stock: 123,
       brand: "OPPO",
       category: "smartphones",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/4/1.jpg",
@@ -86,6 +90,7 @@ const initialState = {
       stock: 83,
       brand: "Apple",
       category: "laptops",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/6/thumbnail.png",
       images: [
         "https://i.dummyjson.com/data/products/6/1.png",
@@ -105,6 +110,7 @@ const initialState = {
       stock: 50,
       brand: "Samsung",
       category: "laptops",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/7/1.jpg",
@@ -124,6 +130,7 @@ const initialState = {
       stock: 68,
       brand: "Microsoft Surface",
       category: "laptops",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/8/1.jpg",
@@ -144,6 +151,7 @@ const initialState = {
       stock: 96,
       brand: "Infinix",
       category: "laptops",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/9/1.jpg",
@@ -167,6 +175,7 @@ const initialState = {
       stock: 65,
       brand: "Impression of Acqua Di Gio",
       category: "fragrances",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/11/1.jpg",
@@ -185,6 +194,7 @@ const initialState = {
       stock: 52,
       brand: "Royal_Mirage",
       category: "fragrances",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/12/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/12/1.jpg",
@@ -205,6 +215,7 @@ const initialState = {
       stock: 61,
       brand: "Fog Scent Xpressio",
       category: "fragrances",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/13/thumbnail.webp",
       images: [
         "https://i.dummyjson.com/data/products/13/1.jpg",
@@ -225,6 +236,7 @@ const initialState = {
       stock: 114,
       brand: "Al Munakh",
       category: "fragrances",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/14/1.jpg",
@@ -247,6 +259,7 @@ const initialState = {
       stock: 110,
       brand: "L'Oreal Paris",
       category: "skincare",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/16/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/16/1.png",
@@ -267,6 +280,7 @@ const initialState = {
       stock: 78,
       brand: "Hemani Tea",
       category: "skincare",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/17/1.jpg",
@@ -286,6 +300,7 @@ const initialState = {
       stock: 88,
       brand: "Dermive",
       category: "skincare",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/18/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/18/1.jpg",
@@ -306,6 +321,7 @@ const initialState = {
       stock: 54,
       brand: "ROREC White Rice",
       category: "skincare",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/19/1.jpg",
@@ -326,6 +342,7 @@ const initialState = {
       stock: 133,
       brand: "Saaf & Khaas",
       category: "groceries",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/21/thumbnail.png",
       images: [
         "https://i.dummyjson.com/data/products/21/1.png",
@@ -343,6 +360,7 @@ const initialState = {
       stock: 146,
       brand: "Bake Parlor Big",
       category: "groceries",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/22/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/22/1.jpg",
@@ -361,6 +379,7 @@ const initialState = {
       stock: 26,
       brand: "Baking Food Items",
       category: "groceries",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/23/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/23/1.jpg",
@@ -381,6 +400,7 @@ const initialState = {
       stock: 47,
       brand: "Dry Rose",
       category: "groceries",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/25/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/25/1.png",
@@ -403,6 +423,7 @@ const initialState = {
       stock: 131,
       brand: "Boho Decor",
       category: "home_decoration",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/26/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/26/1.jpg",
@@ -424,6 +445,7 @@ const initialState = {
       stock: 17,
       brand: "Flying Wooden",
       category: "home_decoration",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/27/thumbnail.webp",
       images: [
         "https://i.dummyjson.com/data/products/27/1.jpg",
@@ -444,6 +466,7 @@ const initialState = {
       stock: 54,
       brand: "LED Lights",
       category: "home_decoration",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/28/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/28/1.jpg",
@@ -464,6 +487,7 @@ const initialState = {
       stock: 54,
       brand: "Golden",
       category: "home_decoration",
+      qty:1,
       thumbnail: "https://i.dummyjson.com/data/products/30/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/30/1.jpg",
@@ -507,6 +531,8 @@ function cart(old=cartitems,newData){
       old.totalProducts--
       old.totalPrice-=old.products[newData.payload].price
       return {...old}
+    }else if(newData.type == "LOGIN"){
+      return {...newData.payload.cart}
     }
     else{
         return {...old}
@@ -517,6 +543,8 @@ function cart(old=cartitems,newData){
 function user(old={},newData){
   if(newData.type == "LOGIN"){
     return {...newData.payload}
+  }else  if(newData.type === "LOG_OUT"){
+    return {}
   }else{
     return {...old}
   }

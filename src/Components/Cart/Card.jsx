@@ -60,7 +60,6 @@ const Card = ({item,index}) => {
                           <p className="text-sm">${item.price * item.qty}.00</p>
                           <button
                             onClick={() => {
-                              console.log(item)
                               dispatch({
                                 type: "Remove-Item",
                                 payload: item,

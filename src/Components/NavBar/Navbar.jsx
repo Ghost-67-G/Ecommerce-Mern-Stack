@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import style from "./NavBar.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
   const CartItems = useSelector(store=>store.cart.totalProducts)
   const navigate = useNavigate()
+  const  dispatch = useDispatch()
   const  user = useSelector(store=>store.user)
-  console.log(user)
   return (
     <nav className="flex h-24 fixed w-full top-0 border items-center bg-gray-400 justify-between px-20">
       <div className="flex items-center gap-12">
@@ -34,6 +34,13 @@ const Navbar = () => {
           </div>
             </button>
         </div>
+          {Object.keys(user).length !== 0?
+          <button onClick={()=>{
+            dispatch({
+              type:"LOG_OUT"
+            })
+          }} className={`${style.button}`}>Log out</button>
+        :
         <div className="flex gap-1">
           <Link to={"/login"} className={`${style.button}`}>Login</Link>
           <Link to={"/signup"} className={`${style.button}`}>
@@ -43,6 +50,7 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
+          }
       </div>
     </nav>
   );

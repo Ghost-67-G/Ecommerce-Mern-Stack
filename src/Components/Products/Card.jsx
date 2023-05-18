@@ -5,9 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Card = ({item}) => {
-    // console.log(item)
-    // item.description = item.description.substr(140)
-    item.qty = 1
+
+    // item.qty = 1
     const [disabled,setDisabled] = useState(false)
     const dispatch = useDispatch()
     const isproduct = useSelector(store=>store.cart.products.find((item1)=>item1.id==item.id))

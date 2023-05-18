@@ -10,7 +10,7 @@ const Product = () => {
       .flat(1)
       .find((item) => item.id == param.id)
   );
-  product.qty = 1;
+  // product.qty = 1;
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
   const dispatch = useDispatch();

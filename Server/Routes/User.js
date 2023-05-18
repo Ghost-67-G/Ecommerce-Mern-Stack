@@ -76,4 +76,31 @@ route.get("/verify/:token", function (req, res) {
   );
 });
 
+
+route.get("/login",async(req,res)=>{
+  let data =JSON.parse(req.query.data)
+  let resp = await User.findOne({user_email:data.user_email})
+  if(resp){ 
+  const  user = resp._doc
+  bcrypt.compare(data.user_password, user.user_password, function(err, result) {
+    // result == true
+    if(result){
+      res.json({success:true,user})
+    }else{
+      res.json({success:false})
+    }
+    console.log(result)
+});
+}else{
+  res.json({userNotExist:true})
+}
+})
+
+
+route.put("/update-userCart",(req,res)=>{
+ User.findByIdAndUpdate(req.body.id,{cart:req.body.cart}).then((resp)=>{
+  res.end()
+ })
+})
+
 module.exports = route;
