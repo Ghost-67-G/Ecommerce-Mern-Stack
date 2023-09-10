@@ -7,7 +7,6 @@ function App() {
   return <div>
     <Provider store={store}>
     <Frontend />
-      
     </Provider>
   </div>;
 }
