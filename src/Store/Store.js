@@ -503,6 +503,7 @@ function products(old = initialState, newData) {
   return { ...old };
 }
 
+
 const cartitems = {
     totalProducts:0,
     totalPrice:0,
