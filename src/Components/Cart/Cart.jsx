@@ -1,9 +1,14 @@
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Card from "./Card";
+import { useDispatch } from "react-redux";
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((store) => store.cart);
+  const checkOut = () => {
+    dispatch({ type: "CHECKOUT" });
+  };
   return (
     <div className="margin">
       {cart.totalProducts ? (
@@ -11,10 +16,8 @@ const Cart = () => {
           <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
           <div className="mx-auto max-w-5xl justify-center h-2/3 px-6 md:flex md:space-x-6 xl:px-0">
             <div className="rounded-lg overflow-y-scroll h-full md:w-2/3">
-              {cart.products.map((item,index) => {
-                return (
-                 <Card item={item} index={index} />
-                );
+              {cart.products.map((item, index) => {
+                return <Card item={item} index={index} />;
               })}
             </div>
             {/* Sub total */}
@@ -37,7 +40,10 @@ const Cart = () => {
                   <p className="text-sm text-gray-700">including VAT</p>
                 </div>
               </div>
-              <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
+              <button
+                onClick={checkOut}
+                className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
+              >
                 Check out
               </button>
             </div>
@@ -46,14 +52,14 @@ const Cart = () => {
       ) : (
         <div>
           <div className="text-center margin">
-          <h1 className="text-5xl py-16">Your Cart is Empty</h1>
-          <Link
-            to="/"
-            className="bg-green-700 font-semibold text-white p-3 rounded-lg"
+            <h1 className="text-5xl py-16">Your Cart is Empty</h1>
+            <Link
+              to="/"
+              className="bg-green-700 font-semibold text-white p-3 rounded-lg"
             >
-            Continue Shopping
-          </Link>
-        </div>
+              Continue Shopping
+            </Link>
+          </div>
         </div>
       )}
     </div>

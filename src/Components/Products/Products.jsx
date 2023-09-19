@@ -7,18 +7,18 @@ const Products = () => {
   return (
     <div className=" px-32 py-9 bg-gray-200">
       <div className="margin">
-        <h1 className="text-3xl font-semibold">Smart Phones</h1>
+        <h1 className="text-3xl font-semibold">Product</h1>
         <div className="flex flex-wrap gap-6 py-3 justify-center">
-          {products?.smartphones?.map((item) => {
+          {products?.map((item, index) => {
             return (
               <div key={item.id}>
-                <Card item={item} />
+                <Card item={item} index={index} />
               </div>
             );
           })}
         </div>
       </div>
-      <div>
+      {/* <div>
         <h1 className="text-3xl font-semibold">Laptops</h1>
         <div className="flex flex-wrap gap-6 py-3 justify-center">
           {products?.laptops?.map((item) => {
@@ -77,7 +77,7 @@ const Products = () => {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

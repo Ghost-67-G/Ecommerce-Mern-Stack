@@ -6,22 +6,20 @@ import { useNavigate, useParams } from "react-router-dom";
 const Product = () => {
   const param = useParams();
   const product = useSelector((store) =>
-    Object.values(store.products)
-      .flat(1)
-      .find((item) => item.id == param.id)
+    store.products.find((item) => item.id == param.id)
   );
   // product.qty = 1;
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
   const dispatch = useDispatch();
-  const isproduct = useSelector(store=>store.cart.products.find((item)=>item.id==param.id))
-  useEffect(()=>{
-
-    if(isproduct){
+  const isproduct = useSelector((store) =>
+    store.cart?.products?.find((item) => item.id == param.id)
+  );
+  useEffect(() => {
+    if (isproduct) {
       setDisabled(true);
     }
-  },[])
-
+  }, []);
 
   let [changer, setChanger] = useState(0);
   setInterval(() => {

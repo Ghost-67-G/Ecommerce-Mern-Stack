@@ -9,6 +9,11 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   console.log(CartItems);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch({ type: "search", payload: e.target.search.value });
+  };
+
   return (
     <nav className="flex h-24 fixed w-full top-0 border items-center bg-gray-400 justify-between px-20">
       <div className="flex items-center gap-12">
@@ -17,12 +22,15 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="w-2/4 flex">
-        <input
-          type="text"
-          className="py-3 flex-1 focus:outline-none px-5"
-          placeholder="Search Product"
-        />
-        <button className="bg-indigo-500 px-10 text-white">Search</button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="search"
+            className="py-3 flex-1 focus:outline-none px-5"
+            placeholder="Search Product"
+          />
+          <button className="bg-indigo-500 px-10 text-white">Search</button>
+        </form>
       </div>
       <div className="flex gap-7">
         <div>
@@ -34,7 +42,7 @@ const Navbar = () => {
             <div className="relative">
               <div className="t-0 absolute left-4 -top-2">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
-                  {CartItems}
+                  {CartItems||0}
                 </p>
               </div>
               <div>
