@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 const Products = () => {
   const products = useSelector((store) => store.products);
   return (
-    <div className=" px-32 py-9 bg-gray-200">
+    <div className=" px-32 py-9 ">
       <div className="margin">
-        <h1 className="text-3xl font-semibold">Product</h1>
-        <div className="flex flex-wrap gap-6 py-3 justify-center">
+        {/* <h1 className="text-3xl font-semibold">Product</h1> */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 m-10">
           {products?.map((item, index) => {
             return (
               <div key={item.id}>

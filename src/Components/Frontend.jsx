@@ -10,6 +10,7 @@ import Verify from "./Verify/Verify";
 import Verifing from "./Verify/Verifing";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import Home from "./Home";
 
 const Frontend = () => {
   const user = useSelector((store) => store.user);
@@ -27,7 +28,8 @@ const Frontend = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Products />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/product/:name/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
