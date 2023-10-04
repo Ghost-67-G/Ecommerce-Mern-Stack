@@ -11,6 +11,7 @@ import Verifing from "./Verify/Verifing";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Home from "./Home";
+import Footer from "./Footer/Footer";
 
 const Frontend = () => {
   const user = useSelector((store) => store.user);
@@ -37,6 +38,7 @@ const Frontend = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/verify/:token" element={<Verifing />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );
