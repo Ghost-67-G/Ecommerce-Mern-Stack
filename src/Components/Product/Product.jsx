@@ -15,29 +15,36 @@ const Product = () => {
   const isproduct = useSelector((store) =>
     store.cart?.products?.find((item) => item.id == param.id)
   );
+  const [currentSlide, setCurrentSlide] = useState(0);
   useEffect(() => {
     if (isproduct) {
       setDisabled(true);
     }
   }, []);
 
-  let [changer, setChanger] = useState(0);
-  setInterval(() => {
-    if (changer == product.images.length - 1) {
-      setChanger(0);
-    } else {
-      changer++;
-      setChanger(changer);
-    }
-  }, 3000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) =>
+        prev === product.images.length - 1 ? 0 : prev + 1
+      );
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentSlide, product.images.length]);
   return (
-    <div className="max-w-7xl margin mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    <div className="max-w-7xl margin pt-3 mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row -mx-4">
         <div className="md:flex-1 px-4">
           <div>
             <div className="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
               <div className="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                <img src={product.images[changer]} className="h-full" alt="" />
+                <img
+                  src={product.images[currentSlide]}
+                  className="h-full"
+                  alt=""
+                />
                 {/* <span className="text-5xl">1</span> */}
               </div>
             </div>
@@ -122,13 +129,12 @@ const Product = () => {
                 </button>
               </div> */}
               {/* <select className="">
-
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select> */}
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select> */}
             </div>
             <button
               type="button"
@@ -141,7 +147,7 @@ const Product = () => {
                 });
               }}
               className={
-                "h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white"
+                "px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600"
               }
             >
               Add to Cart
@@ -159,7 +165,7 @@ const Product = () => {
                 }
               }}
               className={
-                "h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white"
+                "px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600"
               }
             >
               Buy Now

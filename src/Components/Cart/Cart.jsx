@@ -10,7 +10,7 @@ const Cart = () => {
     dispatch({ type: "CHECKOUT" });
   };
   return (
-    <div className="margin">
+    <div className="margin min-h-[37vh]">
       {cart.totalProducts ? (
         <div className="h-screen bg-gray-100 pt-20">
           <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
